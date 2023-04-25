@@ -45,7 +45,13 @@
               <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="/images/dbimg.png" class="d-block w-100" alt="...">
+                    <img id = "Data" src="/images/dbimg1.jpeg" class="d-block w-50" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/dbimg2.jpeg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/dbimg3.jpeg" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -71,11 +77,53 @@
         <div class="row">
           <div class="col-md-4 footer-box">
             <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="logo"></a>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur enim accusantium ratione dolorum sit voluptatibus aperiam accusamus alias suscipit nulla laboriosam modi, atque iure perferendis, commodi nemo. Eveniet, voluptatibus debitis.</p>
+            <p>This Traffic violation detection system is a technology designed to enhance road safety by detecting and identifying riders who violate helmet laws. The system uses computer vision and machine learning algorithms to analyse images and identify motorcyclists who are not wearing helmets while riding on the roads.The helmet detection system for traffic violations helps reduce accidents and promote safer riding habits by enforcing helmet laws and regulations.</p>
           </div>         
         </div>
       </div>
     </section>
+    <!----db---->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCNSuaz7wIowqzVpFmuKMjGJL2P0gY96vQ",
+        authDomain: "g23dp-a4594.firebaseapp.com",
+        projectId: "g23dp-a4594",
+        storageBucket: "g23dp-a4594.appspot.com",
+        messagingSenderId: "704996076849",
+        appId: "1:704996076849:web:31a621955375001f93d410",
+        measurementId: "G-G4SGVR85CB"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      import {collection, getDocs} from "firebase/firestore";
+      function getdata(){
+        // firebase.database().ref('/').once('value',function(snapshot)) {
+        //   snapshot.forEach(function(childSnapshot))
+        //   {
+          
+        //     var childkey = childSnapshot.key;
+        //     var chiddata = childSnapshot.val();
+        //     document.getElementById("Data").setAttribute(src, chiddata['Url']);
+        //   }
+        // }
+        const querySnapshot = await getDocs(collection(db,"Bike"));
+        querySnapshot.forEach((doc)) => {
+          console.log(doc.id, " => ", doc.data());
+        }
+
+      }
+      getdata();
+    </script>
 
     <!-----smooth scroll---->
     <script src="/smooth-scroll.js"></script>

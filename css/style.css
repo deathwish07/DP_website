@@ -134,6 +134,11 @@ body{
     margin: auto;
 }
 
+.d-block {
+    height: 500px;
+
+}
+
 .btn-yes{
     margin-top: 5%;
     box-shadow: none;
